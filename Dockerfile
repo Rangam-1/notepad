@@ -1,5 +1,5 @@
 # Set the base image to java8
-FROM openjdk:8-alpine
+FROM eclipse-temurin:8-jdk-alpine
 
 # File Author / Maintainer
 MAINTAINER Jorge Acetozi
