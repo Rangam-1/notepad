@@ -2,26 +2,26 @@
 FROM eclipse-temurin:8-jdk-alpine
 
 # File Author / Maintainer
-MAINTAINER Jorge Acetozi
+MAINTAINER venkatesh
 
 # Define default environment variables
-ENV NOTEPAD_HOME=/opt/notepad
-ENV NOTEPAD_BINARIES=/opt/notepad/bin
+
 
 # Create directory
-RUN mkdir -p $NOTEPAD_BINARIES
+RUN mkdir -p /opt/notepad/bin
+RUN mkdir -p /opt/notepad
 
 # Set default directory
-WORKDIR $NOTEPAD_HOME
+WORKDIR /opt/notepad
 
 # Copy notepad jar file
-COPY target/*.jar $NOTEPAD_HOME/notepad.jar
+COPY target/*.jar $/opt/notepad/notepad.jar
 
 # Add initialization script
-ADD entrypoint.sh $NOTEPAD_BINARIES/entrypoint.sh
+ADD entrypoint.sh /opt/notepad/bin/entrypoint.sh
 
 # Give permissions
-RUN chmod 755 $NOTEPAD_BINARIES/entrypoint.sh
+RUN chmod 755 /opt/notepad/bin/entrypoint.sh
 
 # Expose default servlet container port
 EXPOSE 8080
